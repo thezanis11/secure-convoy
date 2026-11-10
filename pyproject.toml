@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "secure-convoy"
+version = "1.0.0"
+description = "Reproducible platoon control and V2X security experiments with SUMO cross-engine validation"
+requires-python = ">=3.11"
+dependencies = ["numpy", "pandas", "matplotlib"]
+
+[project.optional-dependencies]
+sumo = ["eclipse-sumo==1.28.0", "traci==1.28.0"]
+
+[project.scripts]
+secure-convoy = "secure_convoy.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["secure_convoy*"]

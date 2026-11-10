@@ -1,0 +1,154 @@
+{
+  "protocol": {
+    "config": {
+      "vehicles": 7,
+      "duration": 42.0,
+      "dt": 0.05,
+      "message_period": 0.1,
+      "vehicle_length": 4.5,
+      "initial_speed": 27.0,
+      "initial_headway": 0.75,
+      "max_acceleration": 2.5,
+      "radar_gap_noise": 0.15,
+      "radar_speed_noise": 0.1,
+      "packet_ttl": 0.4
+    },
+    "seeds": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1010,
+      1011,
+      1012,
+      1013,
+      1014,
+      1015,
+      1016,
+      1017,
+      1018,
+      1019,
+      1020,
+      1021,
+      1022,
+      1023,
+      1024,
+      1025,
+      1026,
+      1027,
+      1028,
+      1029,
+      1030,
+      1031
+    ],
+    "scenarios": [
+      "clean",
+      "emergency_brake",
+      "network_degraded",
+      "external_spoof",
+      "insider_spoof",
+      "replay",
+      "outage",
+      "subtle_insider"
+    ],
+    "controllers": [
+      "local_acc",
+      "trusting_cacc",
+      "authenticated_cacc",
+      "defended_cacc"
+    ],
+    "selection": "fixed factorial grid; no favorable-seed selection; source hash identifies cached recipe",
+    "collision_definition": "front bumper gap <= 0; simulation stops at first contact",
+    "security": "public demo HMAC-SHA256 keys; replay/freshness checks; radar consistency; headway supervisor",
+    "python": "3.14.0",
+    "numpy": "2.5.4"
+  },
+  "primary_runs": 1024,
+  "ablation_runs": 96,
+  "time_step_runs": 36,
+  "simulation_source_sha256": "3b8e8f30c115aa51cad27d4665527b3eb4771c50cbe5761b44cbeece39e04723",
+  "recipe_sha256": "9b17727a9e6018e8aaf34495dbca64b9ee912f616667273b2b0a71c027e6d5ea",
+  "ablation_recipe_sha256": "fb4b2995a2c984836da08d9025a928fe5cfea21f8bf5a26fd5addc0541756965",
+  "convergence_recipe_sha256": "58fb837ac4a44b4f7841a5cd1cac7f305424b7706bd6eb808a03e979cb0fdf9e",
+  "paired_comparisons": {
+    "clean": {
+      "paired_seeds": 32,
+      "collision_rate_reduction": 0.0,
+      "bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "emergency_brake": {
+      "paired_seeds": 32,
+      "collision_rate_reduction": 0.0,
+      "bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "network_degraded": {
+      "paired_seeds": 32,
+      "collision_rate_reduction": 0.0,
+      "bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "external_spoof": {
+      "paired_seeds": 32,
+      "collision_rate_reduction": 1.0,
+      "bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "insider_spoof": {
+      "paired_seeds": 32,
+      "collision_rate_reduction": 1.0,
+      "bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "replay": {
+      "paired_seeds": 32,
+      "collision_rate_reduction": 0.3125,
+      "bootstrap_95": [
+        0.15625,
+        0.5
+      ]
+    },
+    "outage": {
+      "paired_seeds": 32,
+      "collision_rate_reduction": 1.0,
+      "bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "subtle_insider": {
+      "paired_seeds": 32,
+      "collision_rate_reduction": 1.0,
+      "bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "limitations": [
+    "longitudinal single-lane model",
+    "no tire/road friction model or lateral dynamics",
+    "public keys demonstrate protocol checks, not deployment security",
+    "insider holds a signing key; authentication alone cannot establish state truth",
+    "supervisor uses radar and conservative bounds; no formal guarantee under noisy actuator lag",
+    "collision-truncated comfort metrics have unequal horizons",
+    "acceleration-energy gain is a finite-horizon proxy, not proof of string stability"
+  ]
+}

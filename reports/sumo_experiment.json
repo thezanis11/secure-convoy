@@ -1,0 +1,25 @@
+{
+  "sumo_version": [
+    22,
+    "SUMO 1.28.0"
+  ],
+  "config": {
+    "vehicles": 7,
+    "duration": 42.0,
+    "dt": 0.05,
+    "message_period": 0.1,
+    "vehicle_length": 4.5,
+    "initial_speed": 27.0,
+    "initial_headway": 0.75,
+    "max_acceleration": 2.5,
+    "radar_gap_noise": 0.15,
+    "radar_speed_noise": 0.1,
+    "packet_ttl": 0.4
+  },
+  "runs": 32,
+  "collision_agreement": 1.0,
+  "max_abs_min_gap_difference": 5.286437954055145e-12,
+  "interpretation": "closed-loop cross-engine consistency; actuator model, controllers and sensor assumptions shared",
+  "sumo_safety_override": "speedMode 0, laneChangeMode 0, collision.action warn; no automatic safety rescue",
+  "independent_validation_limits": "does not independently validate actuator physics, radio stack, sensors or real-road safety"
+}
